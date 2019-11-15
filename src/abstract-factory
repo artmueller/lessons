@@ -1,0 +1,42 @@
+interface Label {
+  text: string;
+}
+interface Textbox {
+  value: string;
+}
+
+interface WidgetFactory {
+  createLabel(): Label;
+  createTextbox(): Textbox;
+}
+
+class AndroidWidgetFactory implements WidgetFactory {
+  createLabel(): Label {
+    return {
+      text: "label text"
+    };
+  }
+  createTextbox(): Textbox {
+    return {
+      value: "textbox value"
+    };
+  }
+}
+
+class IOSWidgetFactory implements WidgetFactory {
+  createLabel(): Label {
+    return {
+      text: "label text"
+    };
+  }
+
+  createTextbox(): Textbox {
+    return {
+      value: "textbox value"
+    };
+  }
+}
+
+const x: WidgetFactory = new IOSWidgetFactory();
+
+const y: WidgetFactory = new AndroidWidgetFactory();
